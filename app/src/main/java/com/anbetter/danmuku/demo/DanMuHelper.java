@@ -19,10 +19,6 @@ import com.anbetter.danmuku.model.DanMuModel;
 import com.anbetter.danmuku.model.utils.DimensionUtil;
 import com.anbetter.danmuku.view.IDanMuParent;
 import com.anbetter.danmuku.view.OnDanMuTouchCallBackListener;
-import com.facebook.fresco.helper.Phoenix;
-import com.facebook.fresco.helper.listener.IResult;
-import com.facebook.fresco.helper.utils.CircleBitmapTransform;
-import com.facebook.fresco.helper.utils.MLog;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -97,17 +93,17 @@ public final class DanMuHelper {
             danMuView.avatarHeight = avatarSize;
 
             String avatarImageUrl = entity.getAvatar();
-            Phoenix.with(mContext)
-                    .setUrl(avatarImageUrl)
-                    .setWidth(avatarSize)
-                    .setHeight(avatarSize)
-                    .setResult(new IResult<Bitmap>() {
-                        @Override
-                        public void onResult(Bitmap bitmap) {
-                            danMuView.avatar = CircleBitmapTransform.transform(bitmap);
-                        }
-                    })
-                    .load();
+//            Phoenix.with(mContext)
+//                    .setUrl(avatarImageUrl)
+//                    .setWidth(avatarSize)
+//                    .setHeight(avatarSize)
+//                    .setResult(new IResult<Bitmap>() {
+//                        @Override
+//                        public void onResult(Bitmap bitmap) {
+//                            danMuView.avatar = CircleBitmapTransform.transform(bitmap);
+//                        }
+//                    })
+//                    .load();
 
             // 等级
             int level = entity.getLevel();
@@ -133,7 +129,7 @@ public final class DanMuHelper {
                     0,
                     name.length(),
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            MLog.i("spannableString = " + spannableString);
+//            MLog.i("spannableString = " + spannableString);
 
             danMuView.textSize = DimensionUtil.spToPx(mContext, 14);
             danMuView.textColor = ContextCompat.getColor(mContext, R.color.light_green);

@@ -8,9 +8,6 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import com.anbetter.danmuku.DanMuView;
 import com.anbetter.danmuku.demo.model.DanmakuEntity;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.fresco.helper.Phoenix;
-import com.facebook.fresco.helper.utils.DensityUtil;
 import com.google.gson.Gson;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,20 +24,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // 建议放到Application的onCreate方法中进行初始化
-        Phoenix.init(this);
 
         setContentView(R.layout.activity_main);
 
-        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) findViewById(R.id.sdv_cover);
-        ViewGroup.LayoutParams layoutParams = simpleDraweeView.getLayoutParams();
-        layoutParams.width = DensityUtil.getDisplayWidth(this);
-        layoutParams.height = DensityUtil.getDisplayHeight(this);
-
         String url = "https://ww2.sinaimg.cn/large/610dc034jw1fa42ktmjh4j20u011hn8g.jpg";
-        Phoenix.with(simpleDraweeView)
-                .setWidth(DensityUtil.getDisplayWidth(this))
-                .setHeight(DensityUtil.getDisplayHeight(this))
-                .load(url);
 
         mDanMuHelper = new DanMuHelper(this);
 
